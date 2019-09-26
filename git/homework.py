@@ -175,8 +175,7 @@ def alphabet() -> dict:
         i = i + 1
         d = {i: c}
         return d
-    pass
-    pass
+  
 
 
 def simple_sort(data: List[int]) -> List[list]:
