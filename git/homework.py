@@ -19,7 +19,7 @@ def is_two_object_has_same_value(a,b) -> bool:
         return True
     else:
         return False
-    pass
+   
 
 
 def is_two_objects_has_same_type(a,b) -> bool:
@@ -64,7 +64,7 @@ def multiple_ints(a,b) -> int:
         raise ValueError('Alarma! Something is not an integer')
     else:
         return a * b
-    pass
+    
 
 
 def multiple_ints_with_conversion(a,b) -> int:
@@ -97,16 +97,16 @@ def multiple_ints_with_conversion(a,b) -> int:
     if type((a) is float or int) and (type(b) is float or int):
         a_int = int(a)
         b_int = int(b)
-        print(a_int * b_int)
+        return a_int * b_int
     elif a.isdigit() or b.isdigit():
         a = float(a)
         b = float(b)
         a_int = int(a)
         b_int = int(b)
-        print(a_int * b_int)
+        return a_int * b_int
     else:
         raise ValueError('Not valid input data')
-    pass
+    
 
 
 def is_word_in_text(text = " ") -> bool:
@@ -130,7 +130,7 @@ def is_word_in_text(text = " ") -> bool:
         return True
     else:
         return False
-    pass
+    
 
 
 def some_loop_exercise() -> list:
@@ -140,8 +140,8 @@ def some_loop_exercise() -> list:
     l = list(range(12))
     del l[5:7]
     for i in l:
-        print(i + 1)
-    pass
+        return i + 1
+    
 
 
 def remove_from_list_all_negative_numbers(data: List[int]) -> list:
@@ -157,8 +157,8 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
     for i in l:
         if i < 0:
             l.remove(i)
-    print(l)
-    pass
+    return l
+    
 
 
 def alphabet() -> dict:
@@ -174,7 +174,7 @@ def alphabet() -> dict:
     for c in string.ascii_lowercase:
         i = i + 1
         d = {i: c}
-        print(d)
+        return d
     pass
     pass
 
@@ -193,6 +193,6 @@ def simple_sort(data: List[int]) -> List[list]:
         for j in range(i + 1, len(l)):
             if l[i] > l[j]:
                 l[i], l[j] = l[j], l[i]
-    print(l)
+    return l
 
     print("Done!")
