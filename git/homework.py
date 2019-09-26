@@ -109,7 +109,7 @@ def multiple_ints_with_conversion(a,b) -> int:
     
 
 
-def is_word_in_text(text = " ") -> bool:
+def is_word_in_text(word,text) -> bool:
     """
     If text contain word return True
     In another case return False.
@@ -125,8 +125,8 @@ def is_word_in_text(text = " ") -> bool:
         >>> False
 
     """
-    i = type(str)
-    if 'i' in text:
+ 
+    if word in text:
         return True
     else:
         return False
@@ -137,14 +137,10 @@ def some_loop_exercise() -> list:
     """
     Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
-    l = list(range(12))
-    del l[5:7]
-    for i in l:
-        return i + 1
-    
+    return [i for i in range(13) if i !=6 and i !=7]    
 
 
-def remove_from_list_all_negative_numbers(data: List[int]) -> list:
+def remove_from_list_all_negative_numbers(l: List[int]) -> list:
     """
     Use loops to solve this task.
     You could use data.remove(negative_number) to solve this issue.
@@ -153,11 +149,7 @@ def remove_from_list_all_negative_numbers(data: List[int]) -> list:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
         >>> [1, 5, 8]
     """
-    l = []
-    for i in l:
-        if i < 0:
-            l.remove(i)
-    return l
+    return [i for i in l if i>= 0]
     
 
 
