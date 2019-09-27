@@ -15,10 +15,7 @@ def is_two_object_has_same_value(a,b) -> bool:
     If @first and @second has same value should return True
     In another case should return False
     """
-    if a == b:
-        return True
-    else:
-        return False
+    return a == b
    
 
 
@@ -27,10 +24,7 @@ def is_two_objects_has_same_type(a,b) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    if type(a) == type(b):
-        return True
-    else:
-        return False
+    return type(a) == type(b)
 
 
 
@@ -39,10 +33,7 @@ def is_two_objects_is_the_same_objects(a,b) -> bool:
     If @first and @second has same type should return True
     In another case should return False
     """
-    if a is b:
-        return True
-    else:
-        return False
+    return a is b
 
 
 
@@ -94,17 +85,9 @@ def multiple_ints_with_conversion(a,b) -> int:
             print("Not valid input data")
         >>> "Not valid input data"
     """
-    if type((a) is float or int) and (type(b) is float or int):
-        a_int = int(a)
-        b_int = int(b)
-        return a_int * b_int
-    elif a.isdigit() or b.isdigit():
-        a = float(a)
-        b = float(b)
-        a_int = int(a)
-        b_int = int(b)
-        return a_int * b_int
-    else:
+    try:
+        return int(a) * int(b)
+    except:
         raise ValueError('Not valid input data')
     
 
@@ -126,10 +109,7 @@ def is_word_in_text(word,text) -> bool:
 
     """
  
-    if word in text:
-        return True
-    else:
-        return False
+    return word in text
     
 
 
@@ -137,7 +117,7 @@ def some_loop_exercise() -> list:
     """
     Use loop to create list that contain int values from 0 to 12 except 6 and 7
     """
-    return [i for i in range(13) if i !=6 and i !=7]    
+    return [i for i in range(13) if i not in (6,7)]  
 
 
 def remove_from_list_all_negative_numbers(l: List[int]) -> list:
@@ -162,11 +142,10 @@ def alphabet() -> dict:
         >>> {"a": 1, "b": 2 ...}
     """
     import string
-    i = 0
-    for c in string.ascii_lowercase:
-        i = i + 1
-        d = {i: c}
-        return d
+    d = {}
+    for i, c in enumerate(string.ascii_lowercase,1):
+        d[i] = c
+    return d
   
 
 
@@ -179,11 +158,10 @@ def simple_sort(data: List[int]) -> List[list]:
     Returns:
 
     """
-    l = []
-    for i in range(len(l)):
-        for j in range(i + 1, len(l)):
-            if l[i] > l[j]:
-                l[i], l[j] = l[j], l[i]
-    return l
+    for i in range(len(data)):
+        for j in range(i + 1, len(data)):
+            if data[i] > data[j]:
+                data[i], data[j] = data[j], data[i]
+    return data
 
     print("Done!")
