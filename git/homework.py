@@ -88,7 +88,7 @@ def multiple_ints_with_conversion(a,b) -> int:
     try:
         return int(a) * int(b)
     except:
-        raise ValueError('Not valid input data')
+        raise ValueError('Integer is expected')
     
 
 
