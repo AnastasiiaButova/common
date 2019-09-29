@@ -38,36 +38,30 @@ def multiple_ints(a, b) -> int:
     """
     Should calculate product of all args.
     if first_value or second_value is not int should raise ValueError
-
     Raises:
         ValueError
-
     Params:
         first_value: value for multiply
         second_value
     Returns:
         Product of elements
     """
-    try:
-        return int(a * b)
-    except:
-        raise ValueError
+    if type(a) != int or type(b) != int:
+        raise ValueError('Alarma! Something is not an integer')
+    else:
+        return a * b
 
 
 def multiple_ints_with_conversion(a, b) -> int:
     """
     If possible to convert arguments to int value - convert and multiply them.
     If it is impossible raise ValueError
-
     Args:
         first_value: number for multiply
         second_value: number for multiply
-
     Raises:
         ValueError
-
     Returns: multiple of two numbers.
-
     Examples:
         multiple_ints_with_conversion(6, 6)
         >>> 36
@@ -84,24 +78,21 @@ def multiple_ints_with_conversion(a, b) -> int:
     try:
         return int(a) * int(b)
     except:
-        raise ValueError('Not valid input data')
+        raise ValueError('Integer is expected')
 
 
 def is_word_in_text(word, text) -> bool:
     """
     If text contain word return True
     In another case return False.
-
     Args:
         word: Searchable substring
         text: Text for searching
-
     Examples:
         is_word_in_text("Hello", "Hello word")
         >>> True
         is_word_in_text("Glad", "Nice to meet you ")
         >>> False
-
     """
 
     return word in text
@@ -121,7 +112,7 @@ def remove_from_list_all_negative_numbers(l: List[int]) -> list:
     Also you could create new list with only positive numbers.
     Examples:
         remove_from_list_all_negative_numbers([1, 5, -7, 8, -1])
-    #    >>> [1, 5, 8]
+        >>> [1, 5, 8]
     """
     return [i for i in l if i >= 0]
 
@@ -148,7 +139,6 @@ def simple_sort(data: List[int]) -> List[list]:
         simple_sort([2, 9, 6, 7, 3, 2, 1])
         >>> [1, 2, 2, 3, 6, 7, 9]
     Returns:
-
     """
     for i in range(len(data)):
         for j in range(i + 1, len(data)):
