@@ -31,7 +31,7 @@ https://www.w3resource.com/PostgreSQL/connect-to-postgresql-database.php
 > - sudo -u postgres psql
 > - postgres=# create database cursor_db;
 > - postgres=# create user cursor with encrypted password 'very_secret_password';
-> - postgres=# grant all privileges on database cursor_db to cursor;
+> - postgres=# grant all privileges on database cursor_db to cursor;sudo -u postgres createuser
 > - postgres=# ALTER USER cursor WITH SUPERUSER;
 > - postgres=# \q;
   
