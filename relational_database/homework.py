@@ -98,7 +98,7 @@ def task_6_list_all_supplier_countries(cur) -> list:
     Returns: 29 records
 
     """
-    cur.execute("SELECT country FROM suppliers LIMIT 29;")
+    cur.execute("SELECT country FROM suppliers;")
     return cur.fetchall()
 
 
