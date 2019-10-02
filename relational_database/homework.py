@@ -42,7 +42,7 @@ def task_2_list_all_customers(cur) -> list:
     Returns: 91 records
 
     """
-    cur.execute("SELECT * FROM customers LIMIT 91;")
+    cur.execute("SELECT * FROM customers;")
     return cur.fetchall()
 
 
