@@ -14,7 +14,10 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
         fix_names_start_letters([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}])
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
     """
-    pass
+
+    for i in data:
+        if 'name' in i: i['name'] = i['name'].capitalize()
+    return data
 
 
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
@@ -25,6 +28,11 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
        remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
+    for i in data:
+        del i['age']
+        if i['age'] in 'Alex', 'denys': del i['name']
+    return data
+
     pass
 
 
@@ -42,7 +50,9 @@ def task_4_min_value_integers(data: List[int]) -> int:
     """
     Find and return minimum value from list
     """
-    pass
+    a = min (int(i) for i in data)
+    return a
+
 
 
 def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
