@@ -29,7 +29,8 @@ def task_1_add_new_record_to_db(con) -> None:
     """
     with con.cursor() as cursor:
         cursor.execute("INSERT INTO customers(CustomerName,ContactName,address,city,PostalCode,country) "
-                       "VALUES ('Thomas','David','Some Address','London','774','Singapore');")
+                       "VALUES (%s, %s, %s, %s, %s, %s)",('Thomas','David','Some Address','London','774','Singapore'))
+        con.commit()
 
 
 def task_2_list_all_customers(cur) -> list:
