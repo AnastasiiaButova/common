@@ -28,7 +28,7 @@ def task_1_add_new_record_to_db(con) -> None:
 
     """
     with con.cursor() as cursor:
-        cursor.execute("INSERT INTO customers(customername,contactname,address,city,postalcode,country) "
+        cursor.execute("INSERT INTO customers(CustomerName,ContactName,address,city,PostalCode,country) "
                        "VALUES ('Thomas','David','Some Address','London','774','Singapore');")
 
 
@@ -168,8 +168,8 @@ def task_11_list_customers_starting_from_11th(cur):
     Returns: 11 records
     """
     cur.execute("SELECT customerid, customername, contactname, address, city, postalcode, country "
-                "FROM customers"
-                "WHERE customerid > 11;")
+                "FROM customers "
+                "LIMIT 11 OFFSET 11;")
     return cur.fetchmany()
 
 
@@ -212,10 +212,10 @@ def task_14_list_products_with_supplier_information(cur):
 
     Returns: 77 records
     """
-    cur.execute("SELECT p.productid, p.productname, p.unit, p.price, p.country, p.city, s.suppliername"
+    cur.execute("SELECT p.ProductID, p.ProductName, p.unit, p.price, s.country, s.city, s.SupplierName "
             "FROM products as p "
-            "INNER JOIN suppliers as s"
-            "ON p.supplierid=s.supplierid")
+            "INNER JOIN suppliers as s "
+            "ON p.SupplierID=s.SupplierID;")
     return cur.fetchmany()
 
 
@@ -229,9 +229,9 @@ def task_15_list_customers_with_any_order_or_not(cur):
     Returns: 213 records
     """
 
-    cur.execute("SELECT c.customername, c.contactname, c.country, o.orderid"
-                "FROM customers as c"
-                "FULL JOIN orders as o"
+    cur.execute("SELECT c.customername, c.contactname, c.country, o.orderid "
+                "FROM customers as c "
+                "FULL JOIN orders as o "
                 "ON c.customerid = o.customerid;")
     return cur.fetchmany()
 
@@ -245,9 +245,9 @@ def task_16_match_all_customers_and_suppliers_by_country(cur):
 
     Returns: 194 records
     """
-    cur.execute("SELECT c.customername, c.address, c.country AS customercountry, s.country AS suppliercountry, s.suppliername"
-                "FROM customers as c"
+    cur.execute("SELECT c.customername, c.address, c.country AS customercountry, s.country AS suppliercountry, s.suppliername "
+                "FROM customers as c "
                 "FULL JOIN suppliers as s "
-                "ON c.country = s.country"
+                "ON c.country = s.country "
                 "ORDER BY customercountry, suppliercountry;")
     return cur.fetchmany()
