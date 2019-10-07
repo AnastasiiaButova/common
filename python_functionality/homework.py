@@ -14,9 +14,11 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
         fix_names_start_letters([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}])
         >>> [{'name': 'Alex', 'age': 26}, {'name': 'Denys', 'age': 89}]
     """
-
     for i in data:
-        if 'name' in i: i['name'] = i['name'].capitalize()
+        for item in i:
+            if 'name' not in item:
+                continue
+            i['name'] = i['name'].capitalize()
     return data
 
 
@@ -28,9 +30,9 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
        remove_dict_field([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 'age')
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
-    for i in data:
-        for a in redundant_keys:
-            i.pop(a)
+
+    for d in data:
+        for key in redundant_keys: del d[key]
     return data
 
 
@@ -41,25 +43,32 @@ def task_3_find_item_via_value(data: DT, value) -> DT:
         find_item_via_value([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 26)
         >>> [{'name': 'Alex', 'age': 26}]
     """
-    pass
 
+    for d in data:
+        for k,v in d.items():
+            if v == value:
+                items = [d]
+                return items
 
 def task_4_min_value_integers(data: List[int]) -> int:
     """
     Find and return minimum value from list
     """
-    a = min (int(i) for i in data)
-    return int(a)
-
+    return min(data, default=None)
 
 
 def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     """
     Find the longest string
     """
-    for i in data:
-        longest_string = max(data, key=len)
-        return longest_string
+    longest = ""
+    for element in data:
+        element = str(element)
+        if data == None:
+            longest = None
+        elif len(element) > len(longest):
+            longest = element
+    return longest
 
 
 def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
@@ -68,21 +77,31 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    pass
+    for element in data:
+        for key, value in element.items():
+            value_min = min(element.items(), key=lambda x: x[1])
+            a = count(value_min)
+            return value_min
 
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
     Find max value from list of lists
     """
-    pass
+    for l in data:
+        a = max(l, default=None)
+        return a
 
 
 def task_8_sum_of_ints(data: List[int]) -> int:
     """
     Find sum of all items in given list
     """
-    pass
+
+    the_sum = 0
+    for element in data:
+        the_sum = the_sum + element
+    return the_sum
 
 
 def task_9_sum_characters_positions(text: str) -> int:
@@ -98,10 +117,9 @@ def task_9_sum_characters_positions(text: str) -> int:
         >>> 532
 
     """
-    pass
+    return sum(ord(i) for i in text)
 
-
-def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
+def task_10_generator_of_simple_numbers() -> None:
     """
     Return generator of simple numbers
     Stop then iteration if returned value is more than 200
@@ -112,4 +130,12 @@ def task_10_generator_of_simple_numbers() -> Generator[int, None, None]:
         next(a)
         >>> 3
     """
-    pass
+    num = 200
+    for i in range(2, num + 1):
+        for n in range(2, i):
+            if (i % n) == 0:
+                break
+            else:
+                i = []
+                i = i.append(i)
+                return i
