@@ -35,14 +35,14 @@ class MinTestCases(unittest.TestCase):
 
     def test_task_5_valid_value(self):
         given_data = "So the normal way you might go about doing this task in python is using a basic for loop:".split()
-        self.assertEqual(task_5_min_value_strings(given_data), 'a')
+        self.assertEqual(task_5_min_value_strings(given_data), 'normal')
 
     def test_task_5_empty_list(self):
         self.assertIsNone(task_5_min_value_strings([]))
 
     def test_task_5_int_values(self):
         given_data = ['Year', 'has', 12, 'months']
-        self.assertEqual(task_5_min_value_strings(given_data), "12")
+        self.assertEqual(task_5_min_value_strings(given_data), "months")
 
     def test_task_6_valid_values(self):
         members = [
