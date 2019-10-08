@@ -61,13 +61,15 @@ def task_5_min_value_strings(data: List[Union[str, int]]) -> str:
     """
     Find the longest string
     """
+
     longest = ""
-    for element in data:
-        element = str(element)
-        if data == None:
-            longest = None
-        elif len(element) > len(longest):
-            longest = element
+    if len(data) == 0:
+        longest = None
+    else:
+        for element in data:
+            element = str(element)
+            if len(element) > len(longest):
+                longest = element
     return longest
 
 
@@ -77,11 +79,31 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    for element in data:
-        for key, value in element.items():
-            value_min = min(element.items(), key=lambda x: x[1])
-            a = count(value_min)
-            return value_min
+    for key in data:
+     #   value_min = min(data, key =lambda x: data[x])
+
+     #   value_min = min(data.values())
+
+     #   value_min = min(data.keys(), key=(lambda x: data[x]))
+
+     #   value_min = min(zip(data.values(), data.keys()))
+
+        a = data.append([key, value])
+        value_min = (min(data, key=a.get))
+        return a
+
+
+
+
+
+        #a = {key: value for key, value in min(data: for x in data, key= lambda x: x[1])}
+    #return a
+
+    #for element in data:
+    #    for key, value in element.items():
+    #        value_min = min(x: for x in data, key=lambda x: x[1])
+    #        a = element.items()
+    #        return data
 
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
@@ -98,10 +120,7 @@ def task_8_sum_of_ints(data: List[int]) -> int:
     Find sum of all items in given list
     """
 
-    the_sum = 0
-    for element in data:
-        the_sum = the_sum + element
-    return the_sum
+    return sum(data)
 
 
 def task_9_sum_characters_positions(text: str) -> int:
@@ -130,12 +149,16 @@ def task_10_generator_of_simple_numbers() -> None:
         next(a)
         >>> 3
     """
-    num = 200
+    # create list of generators
+    c = (i for i in range 200)
+
+
+    #num = 200
     for i in range(2, num + 1):
         for n in range(2, i):
             if (i % n) == 0:
                 break
             else:
                 i = []
-                i = i.append(i)
-                return i
+                i = i.extend(i)
+                yield i
