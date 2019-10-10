@@ -79,9 +79,12 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-
-    value_min = min(data, key=lambda x: x[key])
-    return value_min
+    for key, value in data:
+        if not key:
+            continue
+        else:
+            value_min = min(data, key=lambda x: x[key])
+            return value_min
 
 
 
