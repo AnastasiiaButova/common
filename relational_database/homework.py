@@ -27,9 +27,11 @@ def task_1_add_new_record_to_db(con) -> None:
     Returns: 92 records
 
     """
+
     with con.cursor() as cursor:
-        cursor.execute("INSERT INTO customers(customername,contactname,address,city,postalcode,country) "
-                       "VALUES ('Thomas','David','Some Address','London','774','Singapore');")
+        cursor.execute("""INSERT INTO customers(customername,contactname,address,city,postalcode,country) 
+                       VALUES (%s,%s,%s,%s,%s,%s)""", ('Thomas','David','Some Address','London','774','Singapore'))
+        con.commit()
 
 
 def task_2_list_all_customers(cur) -> list:
@@ -42,7 +44,7 @@ def task_2_list_all_customers(cur) -> list:
     Returns: 91 records
 
     """
-    cur.execute("SELECT * FROM customers LIMIT 91;")
+    cur.execute("SELECT * FROM customers;")
     return cur.fetchall()
 
 
@@ -98,7 +100,7 @@ def task_6_list_all_supplier_countries(cur) -> list:
     Returns: 29 records
 
     """
-    cur.execute("SELECT country FROM suppliers LIMIT 29;")
+    cur.execute("SELECT country FROM suppliers;")
     return cur.fetchall()
 
 
@@ -168,8 +170,8 @@ def task_11_list_customers_starting_from_11th(cur):
     Returns: 11 records
     """
     cur.execute("SELECT customerid, customername, contactname, address, city, postalcode, country "
-                "FROM customers"
-                "WHERE customerid > 11;")
+                "FROM customers "
+                "LIMIT 11 OFFSET 11;")
     return cur.fetchmany()
 
 
@@ -212,9 +214,9 @@ def task_14_list_products_with_supplier_information(cur):
 
     Returns: 77 records
     """
-    cur.execute("SELECT p.productid, p.productname, p.unit, p.price, p.country, p.city, s.suppliername"
+    cur.execute("SELECT p.ProductID, p.ProductName, p.Unit, p.Price, s.Country, s.City, s.SupplierName "
             "FROM products as p "
-            "INNER JOIN suppliers as s"
+            "INNER JOIN suppliers as s "
             "ON p.supplierid=s.supplierid")
     return cur.fetchmany()
 
@@ -229,9 +231,9 @@ def task_15_list_customers_with_any_order_or_not(cur):
     Returns: 213 records
     """
 
-    cur.execute("SELECT c.customername, c.contactname, c.country, o.orderid"
-                "FROM customers as c"
-                "FULL JOIN orders as o"
+    cur.execute("SELECT c.customername, c.contactname, c.country, o.orderid "
+                "FROM customers as c "
+                "FULL JOIN orders as o "
                 "ON c.customerid = o.customerid;")
     return cur.fetchmany()
 
@@ -245,9 +247,9 @@ def task_16_match_all_customers_and_suppliers_by_country(cur):
 
     Returns: 194 records
     """
-    cur.execute("SELECT c.customername, c.address, c.country AS customercountry, s.country AS suppliercountry, s.suppliername"
-                "FROM customers as c"
+    cur.execute("SELECT c.customername, c.address, c.country AS customercountry, s.country AS suppliercountry, s.suppliername "
+                "FROM customers as c "
                 "FULL JOIN suppliers as s "
-                "ON c.country = s.country"
+                "ON c.country = s.country "
                 "ORDER BY customercountry, suppliercountry;")
     return cur.fetchmany()
