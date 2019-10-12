@@ -79,22 +79,21 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    for key, value in data:
-        if not key:
-            continue
-        else:
-            value_min = min(data, key=lambda x: x[key])
-            return value_min
-
-
+    for i in data:
+        value_min = min(data, key=lambda x: x[key])
+        return value_min
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
     Find max value from list of lists
     """
+    max_list = []
     for l in data:
-        a = max(l, default=None)
-        return a
+        if len(l) != 0:
+            a = max(l)
+            max_list.append(a)
+            b = max (max_list)
+    return b
 
 
 def task_8_sum_of_ints(data: List[int]) -> int:
@@ -133,14 +132,6 @@ def task_10_generator_of_simple_numbers() -> None:
     """
     # create list of generators
    # c = (i for i in range 200)
-
-
-    #num = 200
-    for i in range(2, num + 1):
-        for n in range(2, i):
-            if (i % n) == 0:
-                break
-            else:
-                i = []
-                i = i.extend(i)
-                yield i
+    for i in range (2, 200):
+        if all(i % n != 0 for n in range(2, i)):
+            yield i
