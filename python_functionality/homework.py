@@ -79,9 +79,8 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    for i in data:
-        value_min = min(data, key=lambda x: x[key])
-        return value_min
+    value_min = min((i for i in data if key in i.keys()), key=lambda x: x[key])
+    return value_min
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
