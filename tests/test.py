@@ -43,10 +43,10 @@ class MyTestCase(unittest.TestCase):
 
     def test_radius_of_inscribed_circle(self):
         radius = Rectangle(4, 4)
-        self.assertEqual(Rectangle.get_radius_of_circumscribed_circle(radius), 2.8284271247461903)
+        self.assertEqual(Rectangle.get_radius_of_circumscribed_circle(radius), 2)
 
     def test_radius_of_inscribed_circle_false(self):
-        radius = Rectangle(3,4)
+        radius = Rectangle(4,3)
         with self.assertRaises(ValueError):
             Rectangle.get_radius_of_inscribed_circle(radius)
 

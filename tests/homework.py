@@ -69,6 +69,5 @@ class Rectangle:
         """
         if self.width != self.height:
             raise ValueError("Can't inscribed circle in rectangle with such width and height")
-        diagonal = self.get_rectangle_diagonal()
-        radius = diagonal / 2 * math.sqrt(2)
+        radius = self.width / 2
         return radius
