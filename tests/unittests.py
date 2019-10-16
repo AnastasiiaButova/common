@@ -1,14 +1,14 @@
 import unittest
-from tests.homework_5 import (code_two_list,
-                              code_str,
-                              three,
-                              add_digits,
-                              zero_end,
-                              arithmetic_progression,
-                              unique_num,
-                              missing,
-                              count,
-                              reverse_string)
+from tests.hw_5_1_10 import (code_two_list,
+                             code_str,
+                             three,
+                             add_digits,
+                             zero_end,
+                             arithmetic_progression,
+                             unique_num,
+                             missing,
+                             count,
+                             reverse_string)
 
 class MyTestCase(unittest.TestCase):
 
