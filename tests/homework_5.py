@@ -95,3 +95,8 @@ def count(numbers):
 Write a program that will take the str parameter being passed and return the string in reversed order. 
 For example: if the input string is "Hello World and Coders" then your program should return the string sredoC dna dlroW olleH.'''
 
+def reverse_string(sentence):
+    reversed_sent = ''.join(reversed(sentence))
+    return reversed_sent
+
+    pass

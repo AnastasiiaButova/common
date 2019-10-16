@@ -7,7 +7,8 @@ from tests.homework_5 import (code_two_list,
                               arithmetic_progression,
                               unique_num,
                               missing,
-                              count)
+                              count,
+                              reverse_string)
 
 class MyTestCase(unittest.TestCase):
 
@@ -46,6 +47,10 @@ class MyTestCase(unittest.TestCase):
     def test_count(self):
         numbers = [1,2,3,(1,2),3]
         self.assertEqual(count(numbers),3)
+
+    def test_reverse_string(self):
+        sentence = "Hello World and Coders"
+        self.assertEqual(reverse_string(sentence), 'sredoC dna dlroW olleH')
 
 
 
