@@ -21,7 +21,6 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
             i['name'] = i['name'].capitalize()
     return data
 
-
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
     """given_data
     Remove from dictionaries given key value
@@ -31,8 +30,9 @@ def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
         >>> [{'name': 'Alex'}, {'name': 'denys'}]
     """
 
-    for d in data:
-        for key in redundant_keys: del d[key]
+    for i in data:
+        for key in redundant_keys:
+            del i[key]
     return data
 
 
@@ -43,11 +43,10 @@ def task_3_find_item_via_value(data: DT, value) -> DT:
         find_item_via_value([{'name': 'Alex', 'age': 26}, {'name': 'denys', 'age': 89}], 26)
         >>> [{'name': 'Alex', 'age': 26}]
     """
-
-    for d in data:
-        for k, v in d.items():
+    for i in data:
+        for k, v in i.items():
             if v == value:
-                items = [d]
+                items = [i]
                 return items
 
 
@@ -89,9 +88,9 @@ def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
 
     max_list = []
-    for l in data:
-        if len(l) != 0:
-            a = max(l)
+    for i in data:
+        if len(i) != 0:
+            a = max(i)
             max_list.append(a)
     b = max(max_list)
     return b
@@ -133,6 +132,6 @@ def task_10_generator_of_simple_numbers() -> None:
     """
     # create list of generators
    # c = (i for i in range 200)
-    for i in range (2, 200):
+    for i in range(2, 200):
         if all(i % n != 0 for n in range(2, i)):
             yield i
