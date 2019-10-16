@@ -45,10 +45,11 @@ def task_3_find_item_via_value(data: DT, value) -> DT:
     """
 
     for d in data:
-        for k,v in d.items():
+        for k, v in d.items():
             if v == value:
                 items = [d]
                 return items
+
 
 def task_4_min_value_integers(data: List[int]) -> int:
     """
@@ -86,12 +87,13 @@ def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
     Find max value from list of lists
     """
+
     max_list = []
     for l in data:
         if len(l) != 0:
             a = max(l)
             max_list.append(a)
-            b = max (max_list)
+    b = max(max_list)
     return b
 
 
