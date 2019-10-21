@@ -21,6 +21,7 @@ def task_1_fix_names_start_letter(data: DT) -> DT:
             i['name'] = i['name'].capitalize()
     return data
 
+
 def task_2_remove_dict_fields(data: DT, redundant_keys: List[str]) -> DT:
     """given_data
     Remove from dictionaries given key value
@@ -79,8 +80,9 @@ def task_6_min_value_list_of_dicts(data: DT, key: str) -> ST:
     Returns:
 
     """
-    value_min = min((i for i in data if key in i.keys()), key=lambda x: x[key])
-    return value_min
+   # value_min = min((i for i in data if key in i.keys()), key=lambda x: x[key])
+    return min((i for i in data if key in i.keys()), key=lambda x: x[key])
+
 
 def task_7_max_value_list_of_lists(data: List[List[int]]) -> int:
     """
@@ -119,6 +121,7 @@ def task_9_sum_characters_positions(text: str) -> int:
     """
     return sum(ord(i) for i in text)
 
+
 def task_10_generator_of_simple_numbers() -> None:
     """
     Return generator of simple numbers
@@ -130,8 +133,7 @@ def task_10_generator_of_simple_numbers() -> None:
         next(a)
         >>> 3
     """
-    # create list of generators
-   # c = (i for i in range 200)
+
     for i in range(2, 200):
         if all(i % n != 0 for n in range(2, i)):
             yield i
