@@ -44,15 +44,12 @@ class Cat:
         self.age = age
 
     def eat(self, product):
-        self.product = product
-        if self.product == 'fodder':
-            self.saturation_level = self.saturation_level + 10
-        if self.product == 'apple':
-            self.saturation_level = self.saturation_level + 5
-        if self.product == 'milk':
-            self.saturation_level = self.saturation_level + 2
-        else:
-            self.saturation_level = 50
+        if product == 'fodder':
+            self._increase_saturation_level(10)
+        elif product == 'apple':
+            self._increase_saturation_level(5)
+        elif product == 'milk':
+            self._increase_saturation_level(2)
         return self.saturation_level
 
     def _reduce_saturation_level(self, value):
@@ -61,19 +58,18 @@ class Cat:
             self.saturation_level = 0
 
     def _increase_saturation_level(self, value):
-        self.saturation_level = self.saturation_level + value
+        self.saturation_level += value
         if self.saturation_level > 100:
-            self.saturation_level = 100
+            return 100
+        return self.saturation_level
 
     def _set_average_speed(self,average_speed):
-        self.average_speed = average_speed
         if self.age <= 7:
             self.average_speed = 12
-        if self.age > 7 or self.age <= 10:
+        elif self.age > 7 or self.age <= 10:
             self.average_speed = 9
-        if self.age > 10:
+        elif self.age > 10:
             self.average_speed = 6
-        return self.average_speed
 
     def run(self, hours):
         self.hours = self.average_speed * hours
@@ -90,12 +86,13 @@ class Cat:
         return f"Your cat ran {self.hours} kilometers"
 
     def get_saturation_level(self):
-        if self.saturation_level == 0:
-            self.saturation_level = "Your cat is dead :("
+        if self.saturation_level <= 0:
+            return 'Your cat is dead :('
         return self.saturation_level
 
     def get_average_speed(self):
         return self.average_speed
+
 
 
 class Cheetah(Cat):
