@@ -27,9 +27,10 @@ def task_1_add_new_record_to_db(con) -> None:
     Returns: 92 records
 
     """
+
     with con.cursor() as cursor:
-        cursor.execute("INSERT INTO customers(CustomerName,ContactName,address,city,PostalCode,country) "
-                       "VALUES (%s, %s, %s, %s, %s, %s)",('Thomas','David','Some Address','London','774','Singapore'))
+        cursor.execute("""INSERT INTO customers(customername,contactname,address,city,postalcode,country) 
+                       VALUES (%s,%s,%s,%s,%s,%s)""", ('Thomas','David','Some Address','London','774','Singapore'))
         con.commit()
 
 
@@ -213,10 +214,10 @@ def task_14_list_products_with_supplier_information(cur):
 
     Returns: 77 records
     """
-    cur.execute("SELECT p.ProductID, p.ProductName, p.unit, p.price, s.country, s.city, s.SupplierName "
+    cur.execute("SELECT p.ProductID, p.ProductName, p.Unit, p.Price, s.Country, s.City, s.SupplierName "
             "FROM products as p "
             "INNER JOIN suppliers as s "
-            "ON p.SupplierID=s.SupplierID;")
+            "ON p.supplierid=s.supplierid")
     return cur.fetchmany()
 
 
