@@ -22,6 +22,5 @@ def get_fruits():
     return render_template('fruits.html')
 
 
-
 if __name__ == "__main__":
     first.run(debug=True)
