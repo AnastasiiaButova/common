@@ -14,12 +14,12 @@ def get_home():
 
 @first.route('/vegetables')
 def get_vegetables():
-    return render_template('vegetables.html',list_of_vegetables =  ['beans', 'carrot', 'beetroot', 'cucumber'])
+    return render_template('vegetables.html',list_of_vegetables=['beans', 'carrot', 'beetroot', 'cucumber'])
 
 
 @first.route('/fruits')
 def get_fruits():
-    return render_template('fruits.html')
+    return render_template('fruits.html', list_of_fruits=['melon', 'apple', 'strawberry', 'grape'])
 
 
 if __name__ == "__main__":

@@ -1,9 +1,14 @@
 {% extends "base.html" %}
 
 {% block main_info %}
+
 <ul>
-    <li>apelsin</li>
-    <li>yabloko</li>
-    <li>banana</li>
+    {% for fruit in list_of_fruits %}
+        <li>{% if fruit  == 'strawberry'%}
+            <a style= "color:red">{{fruit}}</a>
+            {% else %}
+            {{ fruit }}</li>
+            {% endif %}
+    {% endfor %}
 </ul>
 {% endblock %}
