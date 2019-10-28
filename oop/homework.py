@@ -149,9 +149,9 @@ class Wall:
         return self.width * self.height
 
     def number_of_rolls_of_wallpaper(self, roll_width_m, roll_length_m):
-        count_of_lines_in_roll = roll_length_m/self.height
-        count_of_lines = self.width/roll_width_m
-        return round(count_of_lines//count_of_lines_in_roll)
+        count_of_lines_in_roll = roll_length_m//self.height
+        count_of_lines = self.width//roll_width_m
+        return count_of_lines/count_of_lines_in_roll
 
 
 class Roof:
