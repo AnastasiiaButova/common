@@ -7,7 +7,7 @@ def get_base():
     return render_template('base.html')
 
 
-@first.route('/home')
+@first.route('/')
 def get_home():
     return render_template('home.html')
 
