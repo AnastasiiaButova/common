@@ -8,6 +8,14 @@ __pycache__/
 .pyc
 >>>>>>> 0b4c24e6a159ff1c3a6091b154aa5d3b745102ac
 .idea
+<<<<<<< HEAD
 Practice_Flask/
 TestDB.db
 tests/mock/
+=======
+
+Practice_Flask/
+TestDB.db
+tests/mock/
+.DS_Store
+>>>>>>> b03724ca0b1ab484122a9435fa6e78118b595766
