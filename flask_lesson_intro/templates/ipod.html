@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block main_info %}
+
+<h1 style="color: darkred;">iPod</h1>
+<img src="{{url_for('static', filename='ipod.png')}}" usemap="#image-map" width="650px" height="360px" class="center">
+<article>
+    The iPod is a line of portable media players and multi-purpose pocket computers[2] designed and marketed by Apple Inc. The first version was released on October 23, 2001, about ​8 1⁄2 months after the Macintosh version of iTunes was released. As of May 28, 2019, only the iPod Touch (7th generation) remains in production.Like other digital music players, some versions of the iPod can serve as external data storage devices. Prior to macOS 10.15 Apple's iTunes software (and other alternative software) can be used to transfer music, photos, videos, games, contact information, e-mail settings, Web bookmarks, and calendars, to the devices supporting these features from computers using certain versions of Apple macOS and Microsoft Windows operating systems.
+</article>
+<p>The number of words: {{text | wordcount()}}</p>
+{% endblock %}
