@@ -2,11 +2,6 @@ from flask import Flask, render_template
 first = Flask(__name__)
 
 
-@first.route('/base')
-def get_base():
-    return render_template('base.html')
-
-
 @first.route('/')
 def get_home():
     return render_template('home.html')

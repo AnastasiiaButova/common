@@ -4,10 +4,10 @@
 
 <ul>
     {% for fruit in list_of_fruits %}
-        <li>{% if fruit  == 'strawberry'%}
-            <a style= "color:red">{{fruit}}</a>
+            {% if fruit  == 'strawberry'%}
+            <li style ="color:red">{{fruit}}</li>
             {% else %}
-            {{ fruit }}</li>
+            <li>{{ fruit }}</li>
             {% endif %}
     {% endfor %}
 </ul>
