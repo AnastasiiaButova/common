@@ -176,7 +176,7 @@ class Roof:
         elif self.roof_type == 'single-pitch':
             return self.width * self.height
         else:
-            raise ValueError ("Sorry there is only two types of roofs")
+            raise ValueError("Sorry there is only two types of roofs")
 
 
 class Window:
@@ -234,7 +234,7 @@ class Door:
     def update_wood_price(self, new_price):
         self.wood_price = new_price
 
-    def update_metal_price(self,new_price):
+    def update_metal_price(self, new_price):
         self.metal_price = new_price
 
 
@@ -304,7 +304,7 @@ class House:
 
     def create_wall(self, width, height):
         if width == 0 or height == 0:
-            raise ValueError ("Value must be not 0")
+            raise ValueError("Value must be not 0")
         elif len(self.__walls) == 4:
             raise ValueError("Our house can not have more than 4 walls")
         else:
@@ -312,7 +312,7 @@ class House:
 
     def create_roof(self, width, height, roof_type):
         if width == 0 or height == 0:
-            raise ValueError ("Value must be not 0")
+            raise ValueError("Value must be not 0")
         elif self.__roof is None:
             self.__roof = Roof(width, height, roof_type)
         else:
@@ -320,7 +320,7 @@ class House:
 
     def create_window(self, width, height):
         if width == 0 or height == 0:
-            raise ValueError ("Value must be not 0")
+            raise ValueError("Value must be not 0")
         else:
             self.__windows.append(Window(width, height))
 
@@ -338,10 +338,10 @@ class House:
     def get_count_of_windows(self):
         return len(self.__windows)
 
-    def get_door_price(self,material):
+    def get_door_price(self, material):
         return self.__door.door_price(material)
 
-    def update_wood_price(self,new_price):
+    def update_wood_price(self, new_price):
         return self.__door.update_wood_price(new_price)
 
     def update_metal_price(self, new_price):
