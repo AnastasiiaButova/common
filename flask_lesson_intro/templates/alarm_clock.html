@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block main_info %}
+<h1 style="color: darkred;"> {{title}}</h1>
+<img src="{{url_for('static', filename='alarm_clock.png')}}" usemap="#image-map" width="650px" height="360px" class="center">
+<article>
+    {{text}}
+</article>
+<p>The number of words: {{text | wordcount()}}</p>
+{% endblock %}
