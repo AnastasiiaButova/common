@@ -2,6 +2,7 @@ import unittest
 
 from tests.homework import (Rectangle)
 
+
 class MyTestCase(unittest.TestCase):
 
     def test_init(self):
@@ -12,11 +13,9 @@ class MyTestCase(unittest.TestCase):
         rectangle = Rectangle(3,4)
         self.assertEqual(Rectangle.get_rectangle_perimeter(rectangle), 14)
 
-
     def test_rectangle_square(self):
         rectangle = Rectangle(3,4)
         self.assertEqual(Rectangle.get_rectangle_square(rectangle), 12)
-
 
     def test_sum_of_corners_true(self):
         rectangle = Rectangle(3, 4)
@@ -30,16 +29,13 @@ class MyTestCase(unittest.TestCase):
         with self.assertRaises(ValueError):
             Rectangle.get_sum_of_corners(rectangle, 5)
 
-
     def test_rectangle_diagonal(self):
         rectangle = Rectangle(3, 4)
         self.assertEqual(Rectangle.get_rectangle_diagonal(rectangle), 5)
 
-
     def test_radius_of_circumscribed_circle(self):
         rectangle = Rectangle(3, 4)
         self.assertEqual(Rectangle.get_radius_of_circumscribed_circle(rectangle), 2.5)
-
 
     def test_radius_of_inscribed_circle(self):
         rectangle = Rectangle(14, 14)

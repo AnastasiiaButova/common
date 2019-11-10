@@ -10,6 +10,7 @@ from tests.hw_5_1_10 import (code_two_list,
                              count,
                              reverse_string)
 
+
 class MyTestCase(unittest.TestCase):
 
     def test_code_two_list(self):
@@ -51,7 +52,6 @@ class MyTestCase(unittest.TestCase):
     def test_reverse_string(self):
         sentence = "Hello World and Coders"
         self.assertEqual(reverse_string(sentence), 'sredoC dna dlroW olleH')
-
 
 
 if __name__ == '__main__':
